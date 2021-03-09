@@ -2,115 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet"
-        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
-  <style>
-
-    img {
-      max-width: 70%;
-    }
-
-    .image-center {
-      display: block;
-      margin: 10px auto;
-    }
-
-  </style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
 </head>
 
-<body>
-<div class="container">
-  <h1 id="title" class="text-center">Welcome to my website.</h1>
-  <div class="row">
-    <article class="col-sm-8">
-      <p>My website is very important because I have many important things
-        to say. Here is a picture of a puppy in a cup: </p>
-      <img src="pup-in-cup.jpg" alt="Puppy in Cup">
-      <p>Here are some more thoughts: Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Cum harum labore veritatis, possimus
-        facilis quas repellat, explicabo, ad commodi ipsum quidem nostrum
-        earum pariatur fugit! Magni sunt nulla impedit! Facilis.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, natus
-        qui nostrum libero atque hic distinctio sint facilis nihil possimus
-        tenetur deserunt rerum laboriosam cum quisuam doloremque ducimus
-        error.</p>
-      <p>Rerum debitis aspernatur, ipsum animi! Quis ullam dolore blanditiis
-        accusantium eius minus tempore, iure maxime similique vel! Possimus
-        reprehenderit autem, recusandae quos laudantium nesciunt libero suscipit
-        officia rerum, et.</p>
-      <p>Aliquam harum at soluta id esse perspiciatis, nesciunt corporis nostrum
-        commodi, dolorum, repellat possimus a cumque. Id sed explicabo, quaerat
-        sit esse facere, voluptatem, odit nesciunt eveniet assumenda, error!</p>
-      <p>Consequuntur porro, nobis placeat, labore magni aliquam repellendus
-        consequatur hic facere, molestiae dolorum suscipit quos sint, minima
-        Quibusdam voluptatem est hic, corporis. Officiis delectus, consectetur
-        harum reiciendis perferendis.</p>
-    </article>
-    <aside class="col-sm-4">
-      <h4>I love lists. Here's why.</h4>
-      <ol>
-        <li>Sometimes they're numbered, and numbers are great.</li>
-        <li>Sometimes they're not, and that's okay too.</li>
-        <li>I don't have the attention span to read paragraphs.</li>
-        <li>Hey look, there's a puppy!</li>
-      </ol>
-    </aside>
+<body">
+  <div class="main-heading text-center">
+    <h1>My Favorite Movies</h1>
+
+    <form class="form-inline justify-content-center" id="new-movie-form">
+      <div class="form-group">
+        <label for="title">Title
+        <input type="text" required id="title" class="form-control mx-sm-3">
+      </div>
+      
+      <div class="form-group">
+        <label for="rating">Rating
+        <input type="number" required  min="0" max="10" id="rating" class="form-control mx-sm-3">
+      </div>
+        
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary form-control mx-sm-3">Submit</button>
+      </div>
+    </form>
   </div>
-  <div class="row mb-5">
-    <div class="col-sm-4">
-      Red
-      <input class="form-control" type="number" min="0" max="255" value="255">
-    </div>
-    <div class="col-sm-4">
-      Blue
-      <input class="form-control" type="number" min="0" max="255" value="255">
-    </div>
-    <div class="col-sm-4">
-      Green
-      <input class="form-control" type="number" min="0" max="255" value="255">
-    </div>
-  </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script>
+  <br>
+  <table class="table table-striped table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Title <i id="title" class="fas fa-sort-down"></i></th>
 
-// 1 
-  console.log("Let's get ready to party with JQuery!");
+        <th scope="col">Rating <i id="rating" class="fas fa-sort-down"></i></th>
+        <th scope="col">Delete </i></th>
+      </tr>
+    </thead>
+    <tbody id="movie-table-body">
+      
+    </tbody>
+  </table>
 
-// 2
-  $('img').addClass('image-center')
-
-// 3 
-$('p').last().remove()
-
-// 4
-$('#title').css('font-size', Math.random() * 100)
-
-// 5 
-$('ol').append('<li>A NEW LIST ITEM</li>')
-$('ol').append('<li>Aaand another one</li>')
-
-// 6 
-$('li').remove()
-$('<p>Sorry that silly list existed!</p>').appendTo('ol')
-
-// 7 
-$(".form-control").on('keyup blur change', function () {
-      let red = $(".form-control").eq(0).val();
-      let blue = $(".form-control").eq(1).val();
-      let green = $(".form-control").eq(2).val();
-      $("body").css("background-color",
-          "rgb(" + red + "," + green + "," + blue + ")");
-    });
-
-// 8 
-$('img').on('click', function () {
-  $(this.remove())
-})
-
-
-</script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="movies.js"></script>  
 </body>
-
 </html>
